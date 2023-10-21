@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("CIS 3334 Flooring", "showResult clicked");   // debug check
+                Log.d("CIS 3334 Minecraft", "showResult clicked");   // debug check
                 Intent detailActIntent = new Intent(MainActivity.this, ResultActivity.class); // initialize the intent
                 // pass data to result activity
                 detailActIntent.putExtra("name", name.getText().toString()); // no longer simple variables
