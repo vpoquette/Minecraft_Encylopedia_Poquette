@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "css.poquette.minecraft_encylopedia_poquette"
-        minSdk 29
+        minSdk 28
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -36,4 +36,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    // Add for gson library for parsing json files
+    implementation 'com.google.code.gson:gson:2.10.1'
+    // Add for Volley libary for HTTP requests, see https://developer.android.com/training/volley
+    implementation 'com.android.volley:volley:1.2.1'
 }

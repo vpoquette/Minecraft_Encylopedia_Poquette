@@ -7,17 +7,22 @@ import java.util.List;
  */
 public class Block {
 
-    private Integer id;
-    private String displayName;
-    private String name;
-    private Integer stackSize;
-    private Boolean diggable;
-    List<BlockVariation> variations; //fishList = new ArrayList();
-    List<BlockDrop> drops;
-    private Boolean transparent;
-    private Integer emitLight;
-    private Integer filterLight;
+    public int id;
+    public String displayName;
+    public String name;
+    public int stackSize;
+    public boolean diggable;
+    //public ArrayList<Drop> drops;
+    public boolean transparent;
+    public int emitLight;
+    public int filterLight;
+    //public HarvestTools harvestTools;
+    //public ArrayList<Variation> variations;
 
+    // other items we could add later
+    //public double hardness;
+    //public double resistance;
+    //public List<BlockTools> harvestTools;
 
     /***
      *  Constructor
@@ -26,20 +31,20 @@ public class Block {
      * @param name - name to use as variable; String
      * @param stackSize - how much of the block can be stored in one slot in player inventory; Integer
      * @param diggable - whether or not the block can be dug up with a shovel or other tool; Boolean
-     * @param variations - metadata and displayname of very similar blocks, usually only differing in appearance; List of variation objects
-     * @param drops - ids of what item(s) the block drops when the player harvests it; List of variation objects
+     * //@param variations - metadata and displayname of very similar blocks, usually only differing in appearance; List of variation objects
+     * //@param drops - ids of what item(s) the block drops when the player harvests it; List of variation objects
      * @param transparent - whether or not the block is transparent; Boolean
      * @param emitLight - how much light the block emits; Integer
      * @param filterLight - how much light can pass through the block; Integer
      */
-    public Block(Integer id, String displayName, String name, Integer stackSize, Boolean diggable, List<BlockVariation> variations, List<BlockDrop> drops, Boolean transparent, Integer emitLight, Integer filterLight) {
+    public Block(int id, String displayName, String name, int stackSize, boolean diggable, boolean transparent, int emitLight, int filterLight) {
         this.id = id;
         this.displayName = displayName;
         this.name = name;
         this.stackSize = stackSize;
         this.diggable = diggable;
-        this.variations = variations;
-        this.drops = drops;
+        //this.variations = variations;
+        //this.drops = drops;
         this.transparent = transparent;
         this.emitLight = emitLight;
         this.filterLight = filterLight;
@@ -60,12 +65,14 @@ public class Block {
     public Boolean getDiggable() {
         return diggable;
     }
+    /*
     public List<BlockVariation> getVariations() {
         return variations;
     }
     public List<BlockDrop> getDrops() {
         return drops;
     }
+    */
     public Boolean getTransparent() {
         return transparent;
     }
