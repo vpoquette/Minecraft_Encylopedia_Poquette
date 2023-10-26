@@ -10,8 +10,8 @@
         android:id="@+id/idLabelResults"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="16dp"
         android:text="ID:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,46 +21,44 @@
         android:id="@+id/idResult"
         android:layout_width="83dp"
         android:layout_height="30dp"
-        android:layout_marginTop="168dp"
+        android:layout_marginTop="12dp"
         android:text="0"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.702"
-        app:layout_constraintStart_toEndOf="@+id/idLabelResults"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.963"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameResult" />
 
     <TextView
         android:id="@+id/nameResult"
-        android:layout_width="86dp"
-        android:layout_height="30dp"
+        android:layout_width="200dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center_vertical"
         android:text="{Name}"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/idResult"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.695"
+        app:layout_constraintHorizontal_bias="0.828"
         app:layout_constraintStart_toEndOf="@+id/nameLabelResults"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/returnHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="24dp"
         android:text="Search Again"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.259" />
+        app:layout_constraintTop_toBottomOf="@+id/wikiButton" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="28dp"
         android:text="Results"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,8 +70,8 @@
         android:id="@+id/nameLabelResults"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="17dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
         android:text="Name:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toStartOf="@+id/textView"
@@ -83,34 +81,140 @@
         android:id="@+id/digResultLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
         android:text="Diggable: "
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idLabelResults" />
+        app:layout_constraintTop_toBottomOf="@+id/stackSizeLabel" />
 
     <TextView
         android:id="@+id/digResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="{false}"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toEndOf="@+id/digResultLabel"
-        app:layout_constraintTop_toBottomOf="@+id/idResult" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stackSize" />
 
     <Button
         android:id="@+id/wikiButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="Open Wiki Page"
-        app:layout_constraintBottom_toTopOf="@+id/returnHome"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.924" />
+        app:layout_constraintTop_toBottomOf="@+id/filterLightLabel" />
+
+    <TextView
+        android:id="@+id/stackSizeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:text="Stack Size:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idLabelResults" />
+
+    <TextView
+        android:id="@+id/stackSize"
+        android:layout_width="83dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="20dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.963"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idResult" />
+
+    <TextView
+        android:id="@+id/transparentLabel"
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Transparent:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/digResultLabel" />
+
+    <TextView
+        android:id="@+id/transparent"
+        android:layout_width="66dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="12dp"
+        android:text="{false}"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/digResult" />
+
+    <TextView
+        android:id="@+id/emitLightLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:text="Emit Light Amount:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transparentLabel" />
+
+    <TextView
+        android:id="@+id/emitLight"
+        android:layout_width="81dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="12dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transparent" />
+
+    <TextView
+        android:id="@+id/filterLightLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:text="Filter Light Amount:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emitLightLabel" />
+
+    <TextView
+        android:id="@+id/filterLight"
+        android:layout_width="83dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="16dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.951"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emitLight" />
+
+    <TextView
+        android:id="@+id/variationLabel"
+        android:layout_width="262dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="24dp"
+        android:text="     If you entered a block but got no results, you may have entered the name of a variation of a block in the list. For example, Granite is a variate of Stone."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/returnHome"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

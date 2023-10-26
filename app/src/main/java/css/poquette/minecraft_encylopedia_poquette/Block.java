@@ -56,6 +56,9 @@ public class Block {
     public String getDisplayName() {
         return displayName;
     }
+    public void setDisplayName(String inDisplayName) {
+        displayName = inDisplayName;
+    }
     public String getName() {
         return name;
     }

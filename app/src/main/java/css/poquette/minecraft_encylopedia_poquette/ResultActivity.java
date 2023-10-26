@@ -24,14 +24,12 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class ResultActivity extends AppCompatActivity {
 
-    TextView nameResult;
-    TextView idResult;
-    TextView digResult;
+    TextView idResult, nameResult, digResult, stackSize, transparent, emitLight, filterLight;
     Button wikiButton, returnHome;
 
+    Block selectedBlock = new Block(0, "No result found. Please try again.", "_", 0, false, false, 0, 0);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("CIS 3334 Minecraft", "moved to result activity");
@@ -45,10 +43,10 @@ public class ResultActivity extends AppCompatActivity {
         nameResult = (TextView) findViewById(R.id.nameResult);
         idResult = (TextView) findViewById(R.id.idResult);
         digResult = (TextView) findViewById(R.id.digResult);
-
-        Integer id = 1;
-        Boolean diggable = true;
-
+        stackSize = (TextView) findViewById(R.id.stackSize);
+        transparent = (TextView) findViewById(R.id.transparent);
+        emitLight = (TextView) findViewById(R.id.emitLight);
+        filterLight = (TextView) findViewById(R.id.filterLight);
             String url = "https://raw.githubusercontent.com/PrismarineJS/minecraft-data/master/data/pc/1.9/blocks.json"; // thanks GitHub user
             // Create a Volley web request to receive back a JSON object.
             // This requires two listeners for Async response, onResponse() and onErrorResponse()
@@ -57,31 +55,23 @@ public class ResultActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONArray response) {
                             try {
-                                // Loop through the array elements
+                                // Loop through .json file
                                 Log.d("CIS 3334", "In getBlockAPI -- Number of blocks retrieved = "+ response.length());
-                                //textViewStatus.setText("Minecraft Blocks: \n");
                                 for(int i=0;i<response.length();i++){
                                     Gson gson = new Gson();
                                     Block obj = gson.fromJson(response.getJSONObject(i).toString(), Block.class);
-                                    //textViewStatus.append(obj.getDisplayName()+"\n ================== \n");
-
-                                    Log.d("CIS 3334", name);
-                                    Log.d("CIS 3334", obj.getDisplayName()); // it's getting all of them
-                                        // maybe add to array and check if entered name is in array?
-                                    if (obj.getDisplayName() == name){ // only checking last one!
-                                        Log.d("CIS 3334", "Name Match");
-                                        nameResult.setText(obj.getDisplayName()); // from json
-
-                                        idResult.setText(id.toString()); // hardcoded values until we confirm that the JSON name works
-                                        digResult.setText(diggable.toString()); // hardcoded values until we confirm that the JSON name works
-                                        // etc.
-
-                                        //nameResult.append(obj.getDisplayName()+"\n ================== \n");
-                                    }
-                                    else{
-                                        nameResult.setText("No result found. Please try again.");
+                                    if (obj.getDisplayName().equalsIgnoreCase(name)){ // since we're comparing strings, can't use ==
+                                        selectedBlock=obj;
+                                        break;
                                     }
                                 }
+                                nameResult.setText(selectedBlock.getDisplayName());
+                                idResult.setText(selectedBlock.getID().toString()); // if the returned datatype is not already string, set it to .toString() or the textView will crash the app
+                                digResult.setText(selectedBlock.getDiggable().toString());
+                                stackSize.setText(selectedBlock.getStackSize().toString());
+                                transparent.setText(selectedBlock.getTransparent().toString());
+                                emitLight.setText(selectedBlock.getEmitLight().toString());
+                                filterLight.setText(selectedBlock.getFilterLight().toString());
                             } catch (JSONException e) {
                                 Log.d("CIS 3334", "In getBlockAPI -- JSONException = "+e.toString());
                             }
@@ -107,7 +97,11 @@ public class ResultActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d("CIS 3334 Minecraft", "wikiButton clicked"); // debug tag
 
-                Uri webpage = Uri.parse("https://minecraft.fandom.com/wiki/" + nameResult.getText());
+                String linkName = nameResult.getText().toString();
+                if (linkName.contains(" ")){
+                    linkName.replace(" ", "_"); // minecraft wiki uses underscores where the data uses spaces
+                }
+                Uri webpage = Uri.parse("https://minecraft.fandom.com/wiki/" + linkName);
                 // dynamic url using entered name
                 Intent webIntent = new Intent(Intent.ACTION_VIEW, webpage);
 
