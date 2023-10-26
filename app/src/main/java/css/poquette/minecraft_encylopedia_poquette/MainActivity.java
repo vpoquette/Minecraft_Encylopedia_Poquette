@@ -31,7 +31,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    MainViewModel mainViewModel;
+    Block mainViewModel;
     Button button;
     TextView name;
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        mainViewModel = new ViewModelProvider(this).get(Block.class);
 
         setUpButton(); // separating the button creation + function into another method
     }

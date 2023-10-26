@@ -1,11 +1,16 @@
 package css.poquette.minecraft_encylopedia_poquette;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+
 import java.util.List;
 
 /***
  *  Details for a single block
  */
-public class Block {
+public class Block extends AndroidViewModel {
 
     public int id;
     public String displayName;
@@ -28,6 +33,10 @@ public class Block {
     //public double hardness;
     //public double resistance;
 
+
+    public Block(@NonNull Application application) {
+        super(application);
+    }
     /***
      *  Constructor
      * @param id - unique identifier; Integer
@@ -42,6 +51,7 @@ public class Block {
      * @param filterLight - how much light can pass through the block; Integer
      */
     public Block(int id, String displayName, String name, int stackSize, boolean diggable, boolean transparent, int emitLight, int filterLight) {
+        super(new Application());
         this.id = id;
         this.displayName = displayName;
         this.name = name;
@@ -53,6 +63,8 @@ public class Block {
         this.emitLight = emitLight;
         this.filterLight = filterLight;
     }
+
+
 
     public Integer getID() {
         return id;
