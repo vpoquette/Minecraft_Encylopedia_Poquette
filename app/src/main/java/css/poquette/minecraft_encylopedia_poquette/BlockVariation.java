@@ -2,6 +2,8 @@ package css.poquette.minecraft_encylopedia_poquette;
 
 import java.util.List;
 
+// currently unused class - see comments in MainActivity.java
+
 public class BlockVariation {
     private Integer metadata;
     private String displayName;

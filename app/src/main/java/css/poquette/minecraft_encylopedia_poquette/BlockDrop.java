@@ -1,5 +1,6 @@
 package css.poquette.minecraft_encylopedia_poquette;
 
+// currently unused class - see comments in MainActivity.java
 public class BlockDrop {
     private Integer drop;
 

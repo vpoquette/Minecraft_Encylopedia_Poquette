@@ -13,16 +13,20 @@ public class Block {
     public int stackSize;
     public boolean diggable;
     //public ArrayList<Drop> drops;
+        // id of item dropped in items.json (not blocks.json!)
+            // items.json includes block information when stored in inventory
+        // if drops in .JSON is missing, block doesn't drop anything
+        // sometimes also includes minCount, metadata
     public boolean transparent;
     public int emitLight;
     public int filterLight;
+        // 15 blocks, 2 lets diffused light in, 0 lets full light in
     //public HarvestTools harvestTools;
+        // if diggable is false, no harvestTools
     //public ArrayList<Variation> variations;
-
-    // other items we could add later
+        // if variations in .JSON is missing, block has no variations
     //public double hardness;
     //public double resistance;
-    //public List<BlockTools> harvestTools;
 
     /***
      *  Constructor
@@ -32,7 +36,7 @@ public class Block {
      * @param stackSize - how much of the block can be stored in one slot in player inventory; Integer
      * @param diggable - whether or not the block can be dug up with a shovel or other tool; Boolean
      * //@param variations - metadata and displayname of very similar blocks, usually only differing in appearance; List of variation objects
-     * //@param drops - ids of what item(s) the block drops when the player harvests it; List of variation objects
+     * //@param drops - ids of what item(s) the block drops when the player harvests it; List of drop objects
      * @param transparent - whether or not the block is transparent; Boolean
      * @param emitLight - how much light the block emits; Integer
      * @param filterLight - how much light can pass through the block; Integer

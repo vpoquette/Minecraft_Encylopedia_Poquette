@@ -21,14 +21,12 @@ import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ResultActivity extends AppCompatActivity {
 
     TextView idResult, nameResult, digResult, stackSize, transparent, emitLight, filterLight;
     Button wikiButton, returnHome;
 
+    // create placeholder block with handy error message already included
     Block selectedBlock = new Block(0, "No result found. Please try again.", "_", 0, false, false, 0, 0);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +35,7 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         Bundle extras = getIntent().getExtras(); // retrieve all passed variables
-        // retrieve specific values
+        // retrieve specific value
         String name = extras.getString("name");
         // connect to UI elements
         nameResult = (TextView) findViewById(R.id.nameResult);
@@ -61,10 +59,13 @@ public class ResultActivity extends AppCompatActivity {
                                     Gson gson = new Gson();
                                     Block obj = gson.fromJson(response.getJSONObject(i).toString(), Block.class);
                                     if (obj.getDisplayName().equalsIgnoreCase(name)){ // since we're comparing strings, can't use ==
-                                        selectedBlock=obj;
-                                        break;
+                                        selectedBlock=obj; // set selectedBlock to matching block
+                                        break; // exit loop
                                     }
                                 }
+                                // set TextViews to selectedBlock values
+                                    // if match found, will display values from .JSON
+                                    // if match not found, will display default values, including error message
                                 nameResult.setText(selectedBlock.getDisplayName());
                                 idResult.setText(selectedBlock.getID().toString()); // if the returned datatype is not already string, set it to .toString() or the textView will crash the app
                                 digResult.setText(selectedBlock.getDiggable().toString());
@@ -97,6 +98,7 @@ public class ResultActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d("CIS 3334 Minecraft", "wikiButton clicked"); // debug tag
 
+                // string manipulation
                 String linkName = nameResult.getText().toString();
                 if (linkName.contains(" ")){
                     linkName.replace(" ", "_"); // minecraft wiki uses underscores where the data uses spaces
@@ -119,7 +121,6 @@ public class ResultActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d("CIS 3334 Minecraft", "returnHome clicked"); // debug tag
                 finish(); // delete current activity and return to initial screen
-                // beats the alternative of painting over the current activity amirite
             }
         });
     }
